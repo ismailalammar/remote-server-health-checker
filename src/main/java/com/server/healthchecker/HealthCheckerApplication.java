@@ -48,7 +48,7 @@ public class HealthCheckerApplication implements CommandLineRunner {
 				/**
 				 * reset errorCount to start checking from the beginning
 				 */
-				/
+				
 				errorCount = 0;
 			}
 
