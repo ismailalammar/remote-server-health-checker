@@ -1,5 +1,3 @@
-# Remote Server Health Checker
-----
 
 ## Overview
 The all idea from this application is to monitor the status for remote server and send email to technical support in case the server was down. 
