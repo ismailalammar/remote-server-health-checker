@@ -45,6 +45,11 @@ public class HealthCheckerApplication implements CommandLineRunner {
 				 sleep for 30 min after send the notification to give buffer to the tech support to solve the issue , and we won't exceed the maximum daily pool for email
 				 */
 				TimeUnit.MINUTES.sleep(30);
+				/**
+				 * reset errorCount to start checking from the beginning
+				 */
+				/
+				errorCount = 0;
 			}
 
 			// sleep for 1 second so it won't add more load to the server
