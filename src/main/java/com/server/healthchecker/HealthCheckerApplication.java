@@ -33,7 +33,7 @@ public class HealthCheckerApplication implements CommandLineRunner {
 			boolean serverAlive = hostService.pingURL(host , timeout);
 			System.out.println(host + " is alive : " + serverAlive);
 
-			if(serverAlive)
+			if(!serverAlive)
 				errorCount += 1;
 			else
 				errorCount = 0; // we only want to send email if we got 5 consecutive errors
