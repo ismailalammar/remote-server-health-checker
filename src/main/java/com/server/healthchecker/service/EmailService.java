@@ -1,11 +1,13 @@
 package com.server.healthchecker.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class EmailService {
 
     private final JavaMailSender emailSender;
@@ -27,6 +29,7 @@ public class EmailService {
             emailSender.send(message);
         }catch (Exception ex){
             // silent exception , so it won't break the logic
+            log.info("Email Error : " + ex.getMessage());
         }
     }
 }
