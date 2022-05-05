@@ -1,6 +1,5 @@
 package com.server.healthchecker.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -12,7 +11,8 @@ public class EmailService {
     private final JavaMailSender emailSender;
     private final String email;
 
-    public EmailService(JavaMailSender emailSender, @Value("${email.sender.username}") String email) {
+    public EmailService(JavaMailSender emailSender,
+                        @Value("${email.sender.username}") String email) {
         this.emailSender = emailSender;
         this.email = email;
     }
@@ -28,6 +28,5 @@ public class EmailService {
         }catch (Exception ex){
             // silent exception , so it won't break the logic
         }
-
     }
 }

@@ -1,11 +1,13 @@
 package com.server.healthchecker.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 @Service
+@Slf4j
 public class HostService {
     public boolean pingURL(String url, int timeout) {
         /*
@@ -20,6 +22,7 @@ public class HostService {
             int responseCode = connection.getResponseCode();
             return (200 <= responseCode && responseCode <= 399);
         } catch (IOException exception) {
+            log.info("Error : " + exception.getMessage());
             return false;
         }
     }

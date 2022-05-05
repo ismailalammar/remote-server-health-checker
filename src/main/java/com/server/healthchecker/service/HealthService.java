@@ -14,14 +14,16 @@ public class HealthService {
     private final HostProperties hostProperties;
     private final String email;
 
-    public HealthService(HostService hostService, EmailService emailService , HostProperties hostProperties , @Value("${email.sender.username}") String email) {
+    public HealthService(HostService hostService, EmailService emailService ,
+                         HostProperties hostProperties ,
+                         @Value("${email.sender.username}") String email) {
         this.hostService = hostService;
         this.emailService = emailService;
         this.hostProperties = hostProperties;
         this.email = email;
     }
 
-    public void check() throws InterruptedException {
+    public void monitor() throws InterruptedException {
         int errorCount = 0;
         // we need to continually ping the remote server
         while (true) {

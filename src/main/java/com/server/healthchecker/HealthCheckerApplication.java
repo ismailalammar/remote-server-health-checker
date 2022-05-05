@@ -18,6 +18,6 @@ public class HealthCheckerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws InterruptedException {
-		healthService.check();
+		healthService.monitor();
 	}
 }
