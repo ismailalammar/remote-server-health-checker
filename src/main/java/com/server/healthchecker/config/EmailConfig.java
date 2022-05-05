@@ -11,17 +11,19 @@ import java.util.Properties;
 @Configuration
 public class EmailConfig {
 
-    @Value("${receiver.email}")
-    private String email;
-    @Value("${receiver.password}")
-    private String password;
+    private final String email;
+    private final String password;
+
+    public EmailConfig(@Value("${email.sender.username}") String email, @Value("${email.sender.password}") String password) {
+        this.email = email;
+        this.password = password;
+    }
 
     @Bean
     public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-
         mailSender.setUsername(email);
         mailSender.setPassword(password);
 
